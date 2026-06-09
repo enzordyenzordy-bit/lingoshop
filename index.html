@@ -1,0 +1,256 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lingo Shop</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(90deg,#001d5c,#0055ff,#39bfff);
+color:white;
+}
+
+h1{
+text-align:center;
+padding:30px;
+font-size:50px;
+}
+
+.produtos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:#08224a;
+border-radius:15px;
+padding:20px;
+text-align:center;
+box-shadow:0 0 15px rgba(0,0,0,.4);
+}
+
+.w{
+font-size:60px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.preco{
+font-size:28px;
+color:#58d8ff;
+font-weight:bold;
+margin:10px 0;
+}
+
+.btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#25c9ff;
+font-weight:bold;
+cursor:pointer;
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.modal-box{
+background:#071b3d;
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:500px;
+position:relative;
+}
+
+.fechar{
+position:absolute;
+right:15px;
+top:10px;
+font-size:30px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>LINGO SHOP</h1>
+
+<div class="produtos">
+
+<div class="card">
+<div class="w" style="color:#FF0000;">[W]</div>
+<h3>W Vermelho</h3>
+<div class="preco">R$ 8,00</div>
+<button class="btn" onclick="abrirModal('W Vermelho','R$ 8,00')">Comprar</button>
+</div>
+
+<div class="card">
+<div class="w" style="color:#FFFF00;">[W]</div>
+<h3>W Amarelo</h3>
+<div class="preco">R$ 7,50</div>
+<button class="btn" onclick="abrirModal('W Amarelo','R$ 7,50')">Comprar</button>
+</div>
+
+<div class="card">
+<div class="w" style="color:#00FF00;">[W]</div>
+<h3>W Verde</h3>
+<div class="preco">R$ 3,50</div>
+<button class="btn" onclick="abrirModal('W Verde','R$ 3,50')">Comprar</button>
+</div>
+
+<div class="card">
+<div class="w" style="color:#1E90FF;">[W]</div>
+<h3>W Azul</h3>
+<div class="preco">R$ 6,50</div>
+<button class="btn" onclick="abrirModal('W Azul','R$ 6,50')">Comprar</button>
+</div>
+
+<div class="card">
+<div class="w" style="color:#8A2BE2;">[W]</div>
+<h3>W Roxo</h3>
+<div class="preco">R$ 10,00</div>
+<button class="btn" onclick="abrirModal('W Roxo','R$ 10,00')">Comprar</button>
+</div>
+
+<div class="card">
+<div class="w" style="color:#FF69B4;">[W]</div>
+<h3>W Rosa</h3>
+<div class="preco">R$ 10,00</div>
+<button class="btn" onclick="abrirModal('W Rosa','R$ 10,00')">Comprar</button>
+</div>
+
+</div>
+
+<div id="pixModal" class="modal">
+
+<div class="modal-box">
+
+<span class="fechar" onclick="fecharModal()">✕</span>
+
+<h2>Finalizar Compra</h2>
+
+<p><b>Item:</b> <span id="itemNome"></span></p>
+<p><b>Valor:</b> <span id="itemPreco"></span></p>
+
+<br>
+
+<input
+value="156.065.729-40"
+readonly
+style="width:100%;padding:12px;border-radius:8px;border:none;">
+
+<br><br>
+
+<button class="btn" onclick="copiarPix()">
+Copiar PIX
+</button>
+
+</div>
+
+</div>
+
+<script>
+function abrirModal(item,preco){
+document.getElementById('itemNome').innerText=item;
+document.getElementById('itemPreco').innerText=preco;
+document.getElementById('pixModal').style.display='flex';
+}
+
+function fecharModal(){
+document.getElementById('pixModal').style.display='none';
+}
+
+function copiarPix(){
+navigator.clipboard.writeText('156.065.729-40');
+alert('PIX copiado!');
+}
+</script>
+
+</body> <h2 style="text-align:center;margin-top:60px;">🏆 Cargos Exclusivos</h2>
+
+<div class="produtos">
+
+<div class="card">
+<h3>Event Host</h3>
+<div class="preco">R$ 20,00</div>
+<p>Permissão para criar eventos.</p>
+<button class="btn" onclick="abrirModal('Event Host','R$ 20,00')">
+Comprar
+</button>
+</div>
+
+</div>
+
+<h2 style="text-align:center;margin-top:60px;">🚫 Punições Lingo Shop</h2>
+
+<div class="produtos">
+
+<div class="card">
+<h3>Unban Ranked</h3>
+<div class="preco">R$ 7,00</div>
+<button class="btn" onclick="abrirModal('Unban Ranked','R$ 7,00')">
+Comprar
+</button>
+</div>
+
+<div class="card">
+<h3>Unban Discord</h3>
+<div class="preco">R$ 10,00</div>
+<button class="btn" onclick="abrirModal('Unban Discord','R$ 10,00')">
+Comprar
+</button>
+</div>
+
+<div class="card">
+<h3>Unban Versão</h3>
+<div class="preco">R$ 15,00</div>
+<button class="btn" onclick="abrirModal('Unban Versão','R$ 15,00')">
+Comprar
+</button>
+</div>
+
+<div class="card">
+<h3>Unmute</h3>
+<div class="preco">R$ 5,00</div>
+<button class="btn" onclick="abrirModal('Unmute','R$ 5,00')">
+Comprar
+</button>
+</div>
+
+<div class="card">
+<h3>Pacote Unban</h3>
+<div class="preco">R$ 20,00</div>
+<button class="btn" onclick="abrirModal('Pacote Unban','R$ 20,00')">
+Comprar
+</button>
+</div>
+
+</div>
+</html>
+```
